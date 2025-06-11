@@ -7,8 +7,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Projects from "./components/Project";
 import Skills from "./components/Skills";
-import Achievements from "./components/Achievements";
-import Publications from "./components/Publications";
+import Certifications from "./components/Certifications";
 
 function App() {
   return (
@@ -20,7 +19,7 @@ function App() {
       <section id="projects"><Projects /></section>
       <section id="experience"><Experience /></section>
       <section id="education"><Education /></section>
-      <section id="achievements"><Achievements /></section>
+      <section id="certifications"><Certifications /></section>
       <section id="publications"><Publications /></section>
       <section id="contact"><Contact /></section>
       <Footer />
