@@ -1,91 +1,337 @@
+/* experience.css */
+
 .experience-section {
-  background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(231, 76, 60, 0.05) 100%);
+  padding: 4rem 2%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: transparent;
+  background: linear-gradient(90deg, #2c3e50, #3498db);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2c3e50);
+  border-radius: 2px;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 65% 30%;
+  gap: 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Experience Column */
+.experience-column {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.column-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.column-title .icon {
+  font-size: 2rem;
+}
+
+.experience-card {
+  margin-bottom: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.experience-card:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-header h4 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.duration {
+  background: #edf2f7;
+  color: #4a5568;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.company {
+  color: #3498db;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.description {
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.skill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: #e2e8f0;
+  color: #2c3e50;
+  padding: 0.5rem 0.8rem;
+  border-radius:40px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Leadership Roadmap */
+.leadership-roadmap {
+  position: relative;
+}
+
+.roadmap-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.roadmap-title .icon {
+  font-size: 2rem;
 }
 
 .timeline {
   position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  padding-left: 2rem;
 }
 
-.timeline::before {
-  content: '';
+.timeline-progress {
   position: absolute;
+  left: 0.9rem;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
   height: 100%;
-  background: var(--primary-color);
+  width: 3px;
+  background: linear-gradient(to bottom, #3498db, #2c3e50);
+  z-index: 1;
+  border-radius: 3px;
+}
+
+.timeline-itemss {
+  position: relative;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.timeline-itemss:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-itemss:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -1.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: #3498db;
+  border: 4px solid white;
+  z-index: 3;
+}
+
+
+.timeline-duration {
+  color: #718096;
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.timeline-org {
+  color: #4a5568;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.milestone {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #2c3e50;
+  background: #ebf8ff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  margin-top: 0.5rem;
+  width: fit-content;
+}
+
+.milestone-icon {
+  font-size: 1.3rem;
+}
+
+/* Animation Styles */
+.experience-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
 }
 
 .timeline-item {
-  position: relative;
-  margin-bottom: 3rem;
-  width: 100%;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.6s ease;
 }
 
-.timeline-item:nth-child(odd) {
-  padding-right: calc(50% + 2rem);
-  text-align: right;
+.experience-section.animate-in .experience-card {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.timeline-item:nth-child(even) {
-  padding-left: calc(50% + 2rem);
+.experience-section.animate-in .timeline-item {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.timeline-dot {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--primary-color);
-  border: 4px solid white;
-  box-shadow: 0 0 0 2px var(--primary-color);
+.experience-section.animate-in .experience-card:nth-child(1) {
+  transition-delay: 0.1s;
 }
 
-.timeline-content {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: var(--box-shadow);
+.experience-section.animate-in .experience-card:nth-child(2) {
+  transition-delay: 0.3s;
 }
 
-.timeline-date {
-  color: var(--primary-color);
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+.experience-section.animate-in .timeline-item:nth-child(1) {
+  transition-delay: 0.2s;
 }
 
-.timeline-title {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--secondary-color);
+.experience-section.animate-in .timeline-item:nth-child(2) {
+  transition-delay: 0.4s;
 }
 
-.timeline-company {
-  color: var(--text-light);
-  margin-bottom: 0.5rem;
-  font-style: italic;
+.experience-section.animate-in .timeline-item:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .split-layout {
+    gap: 3%;
+  }
+}
+
+@media (max-width: 992px) {
+  .experience-section {
+    padding: 6rem 5%;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 800px;
+  }
+  
+  .column-title, .roadmap-title {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .timeline::before {
-    left: 2rem;
+  .section-title {
+    font-size: 2.5rem;
   }
   
-  .timeline-item:nth-child(odd),
-  .timeline-item:nth-child(even) {
-    padding-left: calc(2rem + 20px);
-    padding-right: 0;
-    text-align: left;
+  .card-header h4 {
+    font-size: 1.5rem;
   }
   
-  .timeline-dot {
-    left: 2rem;
+  .duration, .timeline-duration {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-column, .timeline-item {
+    padding: 1.5rem;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .duration {
+    align-self: flex-end;
+  }
+  
+  .timeline {
+    padding-left: 1.5rem;
+  }
+  
+  .timeline-marker {
+    left: -1.35rem;
+    width: 1.2rem;
+    height: 1.2rem;
   }
 }

@@ -1,70 +1,186 @@
+/* about.css */
+
 .about-section {
-  background-color: white;
+  padding: 3rem 10%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="rgba(44, 62, 80, 0.05)" stroke-width="0.5"/></svg>');
+  background-size: 50px 50px;
+  opacity: 0.3;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 1000;
+  color: transparent;
+  background: linear-gradient(90deg, #2c3e50, #3498db);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 5rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2c3e50);
+  border-radius: 2px;
 }
 
 .about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-.about-image {
+  display: flex;
+  gap: 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
-  border-radius: 10px;
+  z-index: 2;
+}
+
+.about-content p {
+  flex: 2;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #4a5568;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
   overflow: hidden;
-  box-shadow: var(--box-shadow);
+  transition: all 0.5s ease;
 }
 
-.about-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: var(--transition);
+.about-content p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #3498db, #2c3e50);
 }
 
-.about-image:hover img {
-  transform: scale(1.05);
+.about-content p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.about-text h3 {
+.interests {
+  flex: 1;
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  padding: 0.5rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  color: white;
+  transition: all 0.5s ease;
+}
+
+.interests:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.interests h3 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  color: var(--secondary-color);
+  position: relative;
+  display: inline-block;
 }
 
-.about-text p {
-  margin-bottom: 1.5rem;
-  color: var(--text-light);
+.interests h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
 }
 
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
+.interests ul {
+  list-style: none;
+  padding: 0;
 }
 
-.skill-tag {
-  background: var(--light-color);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  transition: var(--transition);
+.interests li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  transition: all 0.3s ease;
 }
 
-.skill-tag:hover {
-  background: var(--primary-color);
-  color: white;
+.interests li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: #f1c40f;
+  font-size: 1.3rem;
+}
+
+.interests li:hover {
+  transform: translateX(10px);
+  color: #f1c40f;
+}
+
+/* Floating elements animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .about-content p,
+  .interests {
+    padding: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .about-content {
-    grid-template-columns: 1fr;
+  .about-section {
+    padding: 6rem 5%;
   }
   
-  .about-image {
-    max-width: 400px;
-    margin: 0 auto;
+  .section-title {
+    font-size: 2.5rem;
   }
 }

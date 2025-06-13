@@ -1,59 +1,119 @@
-import "../styles/footer.css";
+import '../styles/footer.css';
+import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 
-function Footer() {
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  // Social media data
+  const socialLinks = [
+    {
+      name: 'LinkedIn',
+      url: 'https://linkedin.com/in/sanjairajaganapathi',
+      icon: <FaLinkedin size={20} />,
+    },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/sanjairajaganapathi2005',
+      icon: <FaGithub size={20} />,
+    },
+    {
+      name: 'LeetCode',
+      url: 'https://leetcode.com/sanjairajaganapathi2005',
+      icon: <SiLeetcode size={20} />,
+    },
+    {
+      name: 'WhatsApp',
+      url: 'https://wa.me/919025875983',
+      icon: <FaWhatsapp size={20} />,
+    },
+    {
+      name: 'Email',
+      url: 'mailto:sanjairajaganapathi2005@gmail.com',
+      icon: <FaEnvelope size={20} />,
+    }
+  ];
+
+  const navLinks = [
+    { name: 'Home', url: '#home' },
+    { name: 'About', url: '#about' },
+    { name: 'Projects', url: '#projects' },
+    { name: 'Experience', url: '#experience' },
+    { name: 'Education', url: '#education' },
+    { name: 'Contact', url: '#contact' }
+  ];
+
   return (
     <footer className="footer">
       <div className="footer-container">
-        <div className="footer-sections">
-          {/* Left - Address */}
-          <div className="footer-left">
-            <h3 className="footer-heading"><span>Address</span></h3>
-            <p>📍<strong>Sanjai R </strong> 
-               Vennadur(Po), Rasipuram(Tk), Tamil Nadu - 637505</p>
-          <p>📧 Email: <a href="mailto:sanjairajaganapathi2005@gmail.com">sanjairajaganapathi2005@gmail.com</a></p>
-          </div>
-
-          {/* Center - Social Media */}
-          <div className="footer-center">
-            <h3 className="footer-heading"><span>Connect with Us</span></h3>
-            <div className="social-links">
-              <a href="#" className="social-icon" aria-label="Facebook">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="social-icon" aria-label="Instagram">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="#" className="social-icon" aria-label="WhatsApp">
-                <i className="fab fa-whatsapp"></i>
-              </a>
-              <a href="#" className="social-icon" aria-label="LinkedIn">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
+        <div className="footer-grid">
+          {/* Contact Info */}
+          <div className="footer-section">
+            <h3 className="footer-heading">Contact</h3>
+            <div className="contact-info">
+              <div className="contact-item">
+                <FaMapMarkerAlt className="contact-icon" />
+                <div>
+                  <p><strong>Sanjai R</strong></p>
+                  <p>Vennadur (Po), Rasipuram (Tk)</p>
+                  <p>Tamil Nadu - 637505, India</p>
+                </div>
+              </div>
+              <div className="contact-item">
+                <FaEnvelope className="contact-icon" />
+                <a href="mailto:sanjairajaganapathi2005@gmail.com">
+                  sanjairajaganapathi2005@gmail.com
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Right - Nav Links */}
-          <div className="footer-right">
-            <h3 className="footer-heading"><span>Quick Links</span></h3>
-            <ul className="nav-links">
-              <li><a href="#about">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#project">Projects</a></li>
-              <li><a href="#experirence">Experirence</a></li>
-              <li><a href="#education">Education</a></li>
-              <li><a href="#contact">Contact Us</a></li>
-            </ul>
+          {/* Quick Links */}
+          <div className="footer-section">
+            <h3 className="footer-heading">Quick Links</h3>
+            <nav className="footer-nav">
+              <ul className="nav-links">
+                {navLinks.map((link, index) => (
+                  <li key={index}>
+                    <a href={link.url} className="nav-link">
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          {/* Connect Section */}
+          <div className="footer-section">
+            <h3 className="footer-heading">Connect</h3>
+            <div className="social-linkss">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className="social-link"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Bottom */}
+        {/* Copyright */}
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} © 2025 | All rights reserved.</p>
-
+          <p className="copyright">
+            © {currentYear} Sanjai R. All rights reserved.
+          </p>
+          
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
