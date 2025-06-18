@@ -31,10 +31,11 @@
   border-radius: 2px;
 }
 
+
 /* Education Timeline Styles */
 .education-timeline {
   max-width: 900px;
-  margin: 0 auto 5rem;
+  margin: 3rem auto 5rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -42,7 +43,7 @@
 
 .timeline-connector-line {
   position: absolute;
-  left: -15px;
+  left: 0px;
   top: 30px;
   bottom: 30px;
   width: 4px;
@@ -78,15 +79,16 @@
   transition-delay: 0.5s;
 }
 
-.timeline-marker {
-  width: 60px;
+.timeline-marker1 {
+  width: 0px;
+  margin-top:100px ;
   display: flex;
   justify-content: center;
 }
 
 .timeline-icon {
-  width: 6rem;
-  height: 3rem;
+  width: 5rem;
+  height: 2.5rem;
   background: white;
   border-radius: 50%;
   display: flex;
@@ -171,7 +173,7 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 .certification-card {
@@ -275,10 +277,6 @@
     max-width: 100%;
   }
   
-  .timeline-connector-line {
-    left: -15px;
-  }
-  
   .timeline-icon {
     width: 50px;
     height: 50px;
@@ -295,7 +293,7 @@
   }
   
   .timeline-connector-line {
-    left: -15px;
+    left: 0px;
   }
   
   .education-card {
@@ -313,15 +311,15 @@
     justify-content: center;
     margin-bottom: 1rem;
   }
-  
+  .education-card {
+    margin-left: 5%;
+    width: 80%;
+  }
   .timeline-connector-line {
-    left: -10px;
+    left: 0px;
     top: 25px;
     bottom: 25px;
-  }
-  
-  .education-card {
-    margin-left: 0;
+    margin-right: 10px;
   }
   
   .certifications-container {
