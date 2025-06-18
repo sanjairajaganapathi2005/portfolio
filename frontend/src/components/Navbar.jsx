@@ -7,43 +7,47 @@ function Navbar() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    document.body.style.overflow = isMenuOpen ? 'auto' : 'hidden';
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    document.body.style.overflow = 'auto';
   };
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
+    <nav className="portfolio-navbar">
+      <div className="portfolio-navbar__container">
         <Link 
           to="home" 
           smooth={true} 
           duration={500} 
-          className="logo"
+          className="portfolio-navbar__logo"
           onClick={closeMenu}
         >
-          Sanjai's Portfolio
+          <span className="portfolio-navbar__logo-name">Sanjai R</span>
+          <span className="portfolio-navbar__logo-title">AI & Data Engineer</span>
         </Link>
 
         <button
-          className={`menu-icon ${isMenuOpen ? 'active' : ''}`}
+          className={`portfolio-navbar__hamburger ${isMenuOpen ? 'portfolio-navbar__hamburger--active' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
         >
-          <span className="menu-line"></span>
-          <span className="menu-line"></span>
-          <span className="menu-line"></span>
+          <span className="portfolio-navbar__hamburger-line"></span>
+          <span className="portfolio-navbar__hamburger-line"></span>
+          <span className="portfolio-navbar__hamburger-line"></span>
         </button>
 
-        <div className={`navlinks ${isMenuOpen ? 'active' : ''}`}>
+        <div className={`portfolio-navbar__links ${isMenuOpen ? 'portfolio-navbar__links--active' : ''}`}>
           <Link 
             to="home" 
             smooth={true} 
             duration={500} 
             onClick={closeMenu}
-            activeClass="active-link"
+            activeClass="portfolio-navbar__link--active"
+            className="portfolio-navbar__link"
           >
             Home
           </Link>
@@ -52,7 +56,8 @@ function Navbar() {
             smooth={true} 
             duration={500} 
             onClick={closeMenu}
-            activeClass="active-link"
+            activeClass="portfolio-navbar__link--active"
+            className="portfolio-navbar__link"
           >
             About
           </Link>
@@ -61,7 +66,8 @@ function Navbar() {
             smooth={true} 
             duration={500} 
             onClick={closeMenu}
-            activeClass="active-link"
+            activeClass="portfolio-navbar__link--active"
+            className="portfolio-navbar__link"
           >
             Skills
           </Link>
@@ -70,7 +76,8 @@ function Navbar() {
             smooth={true} 
             duration={500} 
             onClick={closeMenu}
-            activeClass="active-link"
+            activeClass="portfolio-navbar__link--active"
+            className="portfolio-navbar__link"
           >
             Projects
           </Link>
@@ -79,7 +86,8 @@ function Navbar() {
             smooth={true} 
             duration={500} 
             onClick={closeMenu}
-            activeClass="active-link"
+            activeClass="portfolio-navbar__link--active"
+            className="portfolio-navbar__link"
           >
             Experience
           </Link>
@@ -88,7 +96,8 @@ function Navbar() {
             smooth={true} 
             duration={500} 
             onClick={closeMenu}
-            activeClass="active-link"
+            activeClass="portfolio-navbar__link--active"
+            className="portfolio-navbar__link"
           >
             Education
           </Link>
@@ -97,7 +106,8 @@ function Navbar() {
             smooth={true} 
             duration={500} 
             onClick={closeMenu}
-            activeClass="active-link"
+            activeClass="portfolio-navbar__link--active"
+            className="portfolio-navbar__link"
           >
             Contact
           </Link>

@@ -1,19 +1,31 @@
-.navbar {
-  background-color: rgba(44, 62, 80, 0.95);
-  backdrop-filter: blur(10px);
+/* Variables */
+:root {
+  --navbar-bg: rgba(44, 62, 80, 0.98);
+  --navbar-text: #ffffff;
+  --navbar-accent: #3498db;
+  --navbar-hover: #2ecc71;
+  --navbar-mobile-bg: #2c3e50;
+  --navbar-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --navbar-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Base Navbar Styles */
+.portfolio-navbar {
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(12px);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  transition: var(--transition);
+  transition: var(--navbar-transition);
+  box-shadow: var(--navbar-shadow);
 }
 
-.navbar.scrolled {
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+.portfolio-navbar.scrolled {
   padding: 0.5rem 0;
 }
 
-.navbar-container {
+.portfolio-navbar__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,113 +34,192 @@
   padding: 1rem 2rem;
 }
 
-.logo {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 700;
+/* Logo Styles */
+.portfolio-navbar__logo {
+  display: flex;
+  flex-direction: column;
+  color: var(--navbar-text);
   text-decoration: none;
   cursor: pointer;
-  transition: var(--transition);
-  font-family: 'Playfair Display', serif;
+  transition: var(--navbar-transition);
 }
 
-.logo:hover {
-  color: var(--primary-color);
+.portfolio-navbar__logo-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  font-family: 'Poppins', sans-serif;
 }
 
-.navlinks {
+.portfolio-navbar__logo-title {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+.portfolio-navbar__logo:hover {
+  color: var(--navbar-accent);
+}
+
+/* Navigation Links */
+.portfolio-navbar__links {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
-.navlinks a {
-  color: white;
+.portfolio-navbar__link {
+  color: var(--navbar-text);
   font-weight: 500;
   position: relative;
-  padding: 0.5rem 0;
-  transition: var(--transition);
+  padding: 0.75rem 0;
+  transition: var(--navbar-transition);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.navlinks a::after {
+.portfolio-navbar__link::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 0.5rem;
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--primary-color);
-  transition: var(--transition);
+  background: var(--navbar-accent);
+  transition: var(--navbar-transition);
+  border-radius: 2px;
 }
 
-.navlinks a:hover::after,
-.navlinks .active-link::after {
+.portfolio-navbar__link:hover::after,
+.portfolio-navbar__link--active::after {
   width: 100%;
 }
 
-.navlinks a:hover,
-.navlinks .active-link {
-  color: var(--primary-color);
+.portfolio-navbar__link:hover,
+.portfolio-navbar__link--active {
+  color: var(--navbar-hover);
 }
 
-.menu-icon {
+/* Hamburger Menu */
+.portfolio-navbar__hamburger {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.75rem;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
+  width: 32px;
   height: 24px;
   z-index: 1001;
 }
 
-.menu-line {
+.portfolio-navbar__hamburger-line {
   display: block;
   width: 100%;
   height: 3px;
-  background-color: white;
+  background-color: var(--navbar-text);
   border-radius: 2px;
-  transition: var(--transition);
+  transition: var(--navbar-transition);
 }
 
-.menu-icon.active .menu-line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+.portfolio-navbar__hamburger--active .portfolio-navbar__hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background-color: var(--navbar-hover);
 }
 
-.menu-icon.active .menu-line:nth-child(2) {
+.portfolio-navbar__hamburger--active .portfolio-navbar__hamburger-line:nth-child(2) {
   opacity: 0;
+  transform: translateX(-10px);
 }
 
-.menu-icon.active .menu-line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+.portfolio-navbar__hamburger--active .portfolio-navbar__hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: var(--navbar-hover);
 }
 
+/* Mobile Menu */
 @media (max-width: 768px) {
-  .navbar-container {
+  .portfolio-navbar__container {
     padding: 1rem;
   }
 
-  .menu-icon {
+  .portfolio-navbar__hamburger {
     display: flex;
   }
 
-  .navlinks {
+  .portfolio-navbar__links {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%;
+    width: 75%;
     height: 100vh;
-    background-color: var(--secondary-color);
+    background-color: var(--navbar-mobile-bg);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    transition: var(--transition);
+    gap: 2.5rem;
+    transition: var(--navbar-transition);
+    padding: 2rem;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
   }
 
-  .navlinks.active {
+  .portfolio-navbar__links--active {
     right: 0;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .portfolio-navbar__link {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .portfolio-navbar__link::after {
+    bottom: 0;
+    height: 3px;
+  }
+}
+
+/* Animation for menu items */
+@media (max-width: 768px) {
+  .portfolio-navbar__links--active .portfolio-navbar__link {
+    animation: fadeInRight 0.4s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Staggered animation */
+  .portfolio-navbar__links--active .portfolio-navbar__link:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .portfolio-navbar__links--active .portfolio-navbar__link:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .portfolio-navbar__links--active .portfolio-navbar__link:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .portfolio-navbar__links--active .portfolio-navbar__link:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .portfolio-navbar__links--active .portfolio-navbar__link:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  .portfolio-navbar__links--active .portfolio-navbar__link:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+  .portfolio-navbar__links--active .portfolio-navbar__link:nth-child(7) {
+    animation-delay: 0.7s;
   }
 }
