@@ -1,5 +1,5 @@
 import '../styles/home.css';
-import profileImage from '../public/profile.jpg'; 
+import profileImage from '../public/profile.jpg';
 
 const Home = () => {
   return (
@@ -16,6 +16,7 @@ const Home = () => {
       <div className="home-image">
         <img src={profileImage} alt="Sanjai R" />
       </div>
+
     </div>
   );
 };

@@ -86,7 +86,7 @@ const Education = () => {
           
           {education.map((edu, index) => (
             <div className="timeline-items" key={index}>
-              <div className="timeline-marker">
+              <div className="timeline-marker1">
                 <div className="timeline-icon">{edu.icon}</div>
               </div>
               <div className="education-card">

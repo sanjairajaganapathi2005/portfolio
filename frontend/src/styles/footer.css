@@ -31,6 +31,7 @@
 
 .footer-section {
   margin-bottom: 2rem;
+  width: 250%;
 }
 
 .footer-heading {
@@ -59,16 +60,9 @@
   gap: 1.25rem;
 }
 
-.contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
 .contact-icon {
   color: #3498db;
-  margin-top: 0.25rem;
-  flex-shrink: 0;
+  flex-shrink: 10;
 }
 
 .contact-item a {
