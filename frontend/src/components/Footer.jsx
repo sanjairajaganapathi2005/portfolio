@@ -49,21 +49,16 @@ const Footer = () => {
         <div className="footer-grid">
           {/* Contact Info */}
           <div className="footer-section">
-            <h3 className="footer-heading">Contact</h3>
+            <h3 className="footer-heading">Address</h3>
             <div className="contact-info">
               <div className="contact-item">
-                <FaMapMarkerAlt className="contact-icon" />
-                <div>
-                  <p><strong>Sanjai R</strong></p>
-                  <p>Vennadur (Po), Rasipuram (Tk)</p>
+                  <p> <strong>Sanjai R</strong></p>
+                  <p><FaMapMarkerAlt className="contact-icon" /> Vennadur (Po), Rasipuram (Tk)</p>
                   <p>Tamil Nadu - 637505, India</p>
-                </div>
               </div>
               <div className="contact-item">
-                <FaEnvelope className="contact-icon" />
-                <a href="mailto:sanjairajaganapathi2005@gmail.com">
-                  sanjairajaganapathi2005@gmail.com
-                </a>
+                <FaEnvelope className="contact-icon" /> 
+                <a href="mailto:sanjairajaganapathi2005@gmail.com"> sanjairajaganapathi2005@gmail.com  </a>
               </div>
             </div>
           </div>
@@ -86,7 +81,7 @@ const Footer = () => {
 
           {/* Connect Section */}
           <div className="footer-section">
-            <h3 className="footer-heading">Connect</h3>
+            <h3 className="footer-heading">Connect with me</h3>
             <div className="social-linkss">
               {socialLinks.map((social, index) => (
                 <a

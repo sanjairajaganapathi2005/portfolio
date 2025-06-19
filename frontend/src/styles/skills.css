@@ -1,7 +1,7 @@
 /* skills.css */
 
 .skills-section {
-  padding: 4rem 10%;
+  padding: 2rem 5%;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   position: relative;
   overflow: hidden;
@@ -15,14 +15,14 @@
   -webkit-background-clip: text;
   background-clip: text;
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
   position: relative;
 }
 
 .section-title::after {
   content: '';
   position: absolute;
-  bottom: -15px;
+  bottom: -1px;
   left: 50%;
   transform: translateX(-50%);
   width: 100px;
