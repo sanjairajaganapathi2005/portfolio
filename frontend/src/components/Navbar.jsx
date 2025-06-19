@@ -1,47 +1,33 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-scroll';
 import "../styles/navbar.css";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const closeMenu = () => {
-    if (isMobile) setIsMenuOpen(false);
+    setIsMenuOpen(false);
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 992);
-      if (window.innerWidth >= 992) setIsMenuOpen(false);
-    };
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
+    <nav className="navbar">
       <div className="navbar-container">
-        <a href="#home" className="logo" onClick={closeMenu}>
+        <Link 
+          to="home" 
+          smooth={true} 
+          duration={500} 
+          className="logo"
+          onClick={closeMenu}
+        >
           Sanjai's Portfolio
-        </a>
+        </Link>
 
-        <button 
-          className={`menu-icon ${isMenuOpen ? 'active' : ''}`} 
+        <button
+          className={`menu-icon ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
@@ -52,12 +38,69 @@ function Navbar() {
         </button>
 
         <div className={`navlinks ${isMenuOpen ? 'active' : ''}`}>
-          <a href="#about" onClick={closeMenu}>About Me</a>
-          <a href="#skills" onClick={closeMenu}>Skills</a>
-          <a href="#projects" onClick={closeMenu}>Projects</a>
-          <a href="#experience" onClick={closeMenu}>Experience</a>
-          <a href="#education" onClick={closeMenu}>Education</a>
-          <a href="#contact" onClick={closeMenu}>Contact Me</a>
+          <Link 
+            to="home" 
+            smooth={true} 
+            duration={500} 
+            onClick={closeMenu}
+            activeClass="active-link"
+          >
+            Home
+          </Link>
+          <Link 
+            to="about" 
+            smooth={true} 
+            duration={500} 
+            onClick={closeMenu}
+            activeClass="active-link"
+          >
+            About
+          </Link>
+          <Link 
+            to="skills" 
+            smooth={true} 
+            duration={500} 
+            onClick={closeMenu}
+            activeClass="active-link"
+          >
+            Skills
+          </Link>
+          <Link 
+            to="projects" 
+            smooth={true} 
+            duration={500} 
+            onClick={closeMenu}
+            activeClass="active-link"
+          >
+            Projects
+          </Link>
+          <Link 
+            to="experience" 
+            smooth={true} 
+            duration={500} 
+            onClick={closeMenu}
+            activeClass="active-link"
+          >
+            Experience
+          </Link>
+          <Link 
+            to="education" 
+            smooth={true} 
+            duration={500} 
+            onClick={closeMenu}
+            activeClass="active-link"
+          >
+            Education
+          </Link>
+          <Link 
+            to="contact" 
+            smooth={true} 
+            duration={500} 
+            onClick={closeMenu}
+            activeClass="active-link"
+          >
+            Contact
+          </Link>
         </div>
       </div>
     </nav>
